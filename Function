@@ -1,0 +1,19 @@
+import requests
+from bs4 import BeautifulSoup
+
+def scrape_website(url):
+    response = requests.get(url)
+    if response.status_code == 200:
+        soup = BeautifulSoup(response.content, "html.parser")
+        # Extract relevant information from the website
+        # ...
+
+        # Return the extracted data
+        return extracted_data
+    else:
+        raise Exception("Failed to scrape the website")
+
+if __name__ == "__main__":
+    website_url = "https://www.example.com"
+    scraped_data = scrape_website(website_url)
+    print("Scraped data:", scraped_data)
